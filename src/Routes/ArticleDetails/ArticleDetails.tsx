@@ -1,5 +1,11 @@
+import { Box, Typography } from '@mui/material';
+
 const ArticleDetails = () => {
-  return <p>This is a article details page</p>;
+  return (
+    <Box>
+      <Typography>This is a Article Details</Typography>
+    </Box>
+  );
 };
 
 export default ArticleDetails;
