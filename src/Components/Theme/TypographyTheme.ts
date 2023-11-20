@@ -75,4 +75,4 @@ const TypographyTheme = createTheme({
   },
 });
 
-export default TypographyTheme;
+export default TypographyTheme.typography;
