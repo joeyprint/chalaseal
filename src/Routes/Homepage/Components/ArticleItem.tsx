@@ -16,14 +16,38 @@ const ArticleItem = (props: ArticleItemProps) => {
       borderRadius={2}
       boxShadow={4}
       p={2}
+      minHeight={195}
+      display={'flex'}
+      flexDirection={'column'}
+      justifyContent={'space-between'}
       {...restProps}
     >
-      <Typography fontWeight={600}>{topic}</Typography>
-      <Typography mt={1}>{description}</Typography>
+      <Box>
+        <Typography
+          fontWeight={600}
+          display={'-webkit-box'}
+          textOverflow={'ellipsis'}
+          overflow={'hidden'}
+          sx={{ WebkitLineClamp: 2, WebkitBoxOrient: 'vertical' }}
+        >
+          {topic}
+        </Typography>
+        <Typography
+          mt={1}
+          display={'-webkit-box'}
+          textOverflow={'ellipsis'}
+          overflow={'hidden'}
+          sx={{ WebkitLineClamp: 3, WebkitBoxOrient: 'vertical' }}
+        >
+          {description}
+        </Typography>
+      </Box>
       {onClick && (
-        <Button endIcon={<EastIcon />} variant={'contained'}>
-          Read More
-        </Button>
+        <Box>
+          <Button endIcon={<EastIcon />} variant={'contained'} size={'large'}>
+            Read More
+          </Button>
+        </Box>
       )}
     </Box>
   );
