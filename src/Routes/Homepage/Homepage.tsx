@@ -1,14 +1,12 @@
-import { Box, Button, Typography } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Container } from '@mui/material';
+
+import Articles from './Containers/Articles';
 
 const Homepage = () => {
-  const navigate = useNavigate();
-
   return (
-    <Box>
-      <Typography>This is a Homepage</Typography>
-      <Button onClick={() => navigate('/articles')}>Go to Article</Button>
-    </Box>
+    <Container>
+      <Articles />
+    </Container>
   );
 };
 
