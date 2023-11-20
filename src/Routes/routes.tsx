@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { ArticleDetails } from './ArticleDetails';
 import { Articles } from './Articles';
@@ -11,8 +11,9 @@ const AppRoutes = () => {
       <Route element={<BaseLayout />}>
         <Route index element={<Homepage />} />
 
-        <Route path={'/browse'}>
-          <Route index element={<Articles />} />
+        <Route path={'/browse'} element={<Articles />} />
+        <Route path={'/articles'}>
+          <Route index element={<Navigate to={'/browse'} />} />
           <Route path={':articleId'} element={<ArticleDetails />} />
         </Route>
       </Route>
