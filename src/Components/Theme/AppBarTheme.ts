@@ -3,12 +3,13 @@ import { createTheme } from '@mui/material';
 const appBarTheme = createTheme({
   components: {
     MuiAppBar: {
+      defaultProps: {},
       styleOverrides: {
         root: ({ theme: { palette, spacing, shadows } }) => ({
           backgroundColor: palette.common.white,
           color: palette.text.primary,
-          paddingTop: spacing(2),
-          paddingBottom: spacing(2),
+          paddingTop: spacing(1),
+          paddingBottom: spacing(1),
           boxShadow: shadows[3],
         }),
       },
