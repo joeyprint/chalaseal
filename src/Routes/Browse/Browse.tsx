@@ -1,6 +1,6 @@
 import { Box, Typography } from '@mui/material';
 
-const Articles = () => {
+const Browse = () => {
   return (
     <Box>
       <Typography>This is a Article List</Typography>
@@ -8,4 +8,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default Browse;
