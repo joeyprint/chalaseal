@@ -45,7 +45,7 @@ const paletteTheme = createTheme({
     },
     text: {
       primary: 'hsla(0, 0%, 19%, 1)',
-      secondary: 'hsla(0, 0%, 100%, 1)',
+      secondary: 'hsla(0, 0%, 30%, 1)',
       disabled: 'hsla(210, 11%, 71%, 1)',
     },
   },

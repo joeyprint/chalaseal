@@ -34,6 +34,7 @@ const ArticleItem = (props: ArticleItemProps) => {
         </Typography>
         <Typography
           mt={1}
+          color={'text.secondary'}
           display={'-webkit-box'}
           textOverflow={'ellipsis'}
           overflow={'hidden'}
