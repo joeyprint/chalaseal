@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import ArticleBasicInformation from './Containers/ArticleBasicInformation';
 import PdfViewer from './Containers/PdfViewer';
+import ArticleInformation from './Containers/ArticleInformation';
 
 const ArticleDetails = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const ArticleDetails = () => {
       </Button>
       <ArticleBasicInformation />
       <PdfViewer />
+      <ArticleInformation />
     </Container>
   );
 };
