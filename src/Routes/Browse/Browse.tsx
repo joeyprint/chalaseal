@@ -1,10 +1,12 @@
-import { Box, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
+
+import BrowseList from './Containers/BrowseList';
 
 const Browse = () => {
   return (
-    <Box>
-      <Typography>This is a Article List</Typography>
-    </Box>
+    <Container>
+      <BrowseList />
+    </Container>
   );
 };
 
