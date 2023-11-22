@@ -20,46 +20,65 @@ const InfoBox = ({ title, description, ...restProps }: InfoBoxProps) => {
   );
 };
 
+const mockInfo = {
+  id: '1',
+  title: 'Kui: Ban Sang Kae Dialect',
+  originFormat: 'Notebook',
+  originSource: "Written text from Theeraphan Luangthongkum's notebook",
+  subject: 'Sino-Tibetan Languages',
+  languages: ['tha', 'kdt'],
+  researchDate: '1 July 1983 - 5 Aug 1983',
+  location: 'Surin (Thailand)',
+  accrual: 'Donation',
+  author: 'Theraphan Luangthongkum',
+  publisher:
+    'Humanities Information Center, Faculty of Arts, Chulalongkorn University',
+  rightHolder:
+    'Humanities Information Center, Faculty of Arts, Chulalongkorn University',
+  tags: ['Ahka', 'Ekaw', 'Sino-Tibetan Languages'],
+};
+
 const ArticleInformation = () => {
   return (
     <Box mt={8}>
-      <InfoBox title={'Original Format'} description={'Notebook'} />
+      <InfoBox title={'Original Format'} description={mockInfo.originFormat} />
+      <InfoBox title={'Source'} description={mockInfo.originSource} mt={2} />
+      <InfoBox title={'Subject'} description={mockInfo.subject} mt={2} />
       <InfoBox
-        title={'Source'}
-        description={"Written text from Theeraphan Luangthongkum's notebook"}
+        title={'Language'}
+        description={mockInfo.languages.join(', ')}
         mt={2}
       />
-      <InfoBox
-        title={'Subject'}
-        description={'Sino-Tibetan Languages'}
-        mt={2}
-      />
-      <InfoBox title={'Language'} description={'tha, kdt'} mt={2} />
       <InfoBox
         title={'Research Date'}
-        description={'1 July 1983 - 5 Aug 1983'}
+        description={mockInfo.researchDate}
         mt={2}
       />
-      <InfoBox title={'Accrual Method'} description={'Donation'} mt={2} />
+      <Box display={{ md: 'flex' }} alignItems={{ md: 'baseline' }} mt={2}>
+        <Typography fontWeight={600} minWidth={145}>
+          Location
+        </Typography>
+        <Box>
+          <Typography>{mockInfo.location}</Typography>
+          {/* Map */}
+        </Box>
+      </Box>
+      <InfoBox title={'Accrual Method'} description={mockInfo.accrual} mt={2} />
       <InfoBox
         title={'Citation'}
-        description={
-          'Theraphan Luangthongkum, “Kui: Ban Sang Kae Dialect,” Chulalongkorn Linguistic Fieldwork Archive , accessed November 19, 2023'
-        }
+        description={`
+        ${mockInfo.author}, ${mockInfo.title}, ${new Intl.DateTimeFormat('en', {
+          day: 'numeric',
+          month: 'long',
+          year: 'numeric',
+        }).format(new Date())}
+        `}
         mt={2}
       />
-      <InfoBox
-        title={'Publisher'}
-        description={
-          'Humanities Information Center, Faculty of Arts, Chulalongkorn University'
-        }
-        mt={2}
-      />
+      <InfoBox title={'Publisher'} description={mockInfo.publisher} mt={2} />
       <InfoBox
         title={'Right Holder'}
-        description={
-          'Humanities Information Center, Faculty of Arts, Chulalongkorn University'
-        }
+        description={mockInfo.rightHolder}
         mt={2}
       />
       <InfoBox
@@ -69,6 +88,15 @@ const ArticleInformation = () => {
         }
         mt={2}
       />
+      <Box display={{ md: 'flex' }} alignItems={{ md: 'baseline' }} mt={2}>
+        <Typography fontWeight={600} minWidth={145}>
+          Tags
+        </Typography>
+        <Box>
+          {/* Tags */}
+          <Typography>{mockInfo.tags.join(', ')}</Typography>
+        </Box>
+      </Box>
     </Box>
   );
 };
