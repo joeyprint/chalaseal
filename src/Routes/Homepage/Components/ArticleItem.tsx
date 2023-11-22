@@ -1,4 +1,4 @@
-import EastIcon from '@mui/icons-material/East';
+import EastRoundedIcon from '@mui/icons-material/EastRounded';
 
 import { Box, BoxProps, Button, Typography } from '@mui/material';
 
@@ -45,7 +45,11 @@ const ArticleItem = (props: ArticleItemProps) => {
       </Box>
       {onClick && (
         <Box>
-          <Button endIcon={<EastIcon />} variant={'contained'} size={'large'}>
+          <Button
+            endIcon={<EastRoundedIcon />}
+            variant={'contained'}
+            size={'large'}
+          >
             Read More
           </Button>
         </Box>
