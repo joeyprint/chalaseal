@@ -1,20 +1,30 @@
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
 import { Box, BoxProps, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 
 type BrowseItemProps = {
   title: string;
   description: string;
+  articleUrl: string;
   location?: string;
   tags?: Array<string>;
 } & BoxProps;
 
 const BrowseItem = (props: BrowseItemProps) => {
-  const { title, description, location, tags, ...restProps } = props;
+  const { title, description, location, tags, articleUrl, ...restProps } =
+    props;
 
   return (
     <Box {...restProps}>
-      <Typography fontWeight={600} color={'primary.main'}>
+      <Typography
+        component={Link}
+        fontWeight={600}
+        variant={'subtitle1'}
+        color={'primary.main'}
+        sx={{ textDecoration: 'none' }}
+        to={articleUrl}
+      >
         {title}
       </Typography>
       <Typography
