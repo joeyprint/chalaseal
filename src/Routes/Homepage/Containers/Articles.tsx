@@ -25,7 +25,7 @@ const Articles = () => {
             description={
               'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
             }
-            onClick={() => goToArticleById('1')}
+            onReadMore={() => goToArticleById('1')}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
@@ -34,7 +34,7 @@ const Articles = () => {
             description={
               'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
             }
-            onClick={() => goToArticleById('2')}
+            onReadMore={() => goToArticleById('2')}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
@@ -43,7 +43,7 @@ const Articles = () => {
             description={
               'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
             }
-            onClick={() => goToArticleById('3')}
+            onReadMore={() => goToArticleById('3')}
           />
         </Grid>
       </Grid>

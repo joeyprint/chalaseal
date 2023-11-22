@@ -5,10 +5,11 @@ import { Box, BoxProps, Button, Typography } from '@mui/material';
 type ArticleItemProps = {
   topic: string;
   description: string;
+  onReadMore?: () => void;
 } & BoxProps;
 
 const ArticleItem = (props: ArticleItemProps) => {
-  const { topic, description, onClick, ...restProps } = props;
+  const { topic, description, onReadMore, ...restProps } = props;
 
   return (
     <Box
@@ -43,12 +44,13 @@ const ArticleItem = (props: ArticleItemProps) => {
           {description}
         </Typography>
       </Box>
-      {onClick && (
+      {onReadMore && (
         <Box>
           <Button
             endIcon={<EastRoundedIcon />}
             variant={'contained'}
             size={'large'}
+            onClick={onReadMore}
           >
             Read More
           </Button>
