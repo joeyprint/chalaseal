@@ -3,6 +3,7 @@ import { Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 
 import ArticleBasicInformation from './Containers/ArticleBasicInformation';
+import PdfViewer from './Containers/PdfViewer';
 
 const ArticleDetails = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const ArticleDetails = () => {
         Back
       </Button>
       <ArticleBasicInformation />
+      <PdfViewer />
     </Container>
   );
 };
