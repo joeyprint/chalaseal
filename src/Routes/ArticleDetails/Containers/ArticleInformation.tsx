@@ -1,7 +1,5 @@
 import { Box, BoxProps, Typography } from '@mui/material';
-import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-
-import 'leaflet/dist/leaflet.css';
+import { MapViewer } from '../../../Components/MapViewer';
 
 type InfoBoxProps = {
   title: string;
@@ -42,8 +40,6 @@ const mockInfo = {
 };
 
 const ArticleInformation = () => {
-  // const map = Leaflet.map('map').setView([51.505, -0.09], 13);
-
   return (
     <Box mt={8}>
       <InfoBox title={'Original Format'} description={mockInfo.originFormat} />
@@ -65,25 +61,11 @@ const ArticleInformation = () => {
         </Typography>
         <Box width={1}>
           <Typography>{mockInfo.location}</Typography>
-          <Box width={1} height={300} overflow={'hidden'}>
-            <MapContainer
-              center={[51.505, -0.09]}
-              zoom={13}
-              scrollWheelZoom={false}
-              preferCanvas
-              style={{ height: '100%' }}
-            >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-              />
-              <Marker position={[51.505, -0.09]}>
-                <Popup>
-                  A pretty CSS3 popup. <br /> Easily customizable.
-                </Popup>
-              </Marker>
-            </MapContainer>
-          </Box>
+          <MapViewer
+            latitude={13.756331}
+            longitude={100.501762}
+            popupMessage={mockInfo.title}
+          />
         </Box>
       </Box>
       <InfoBox title={'Accrual Method'} description={mockInfo.accrual} mt={2} />
