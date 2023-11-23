@@ -1,9 +1,35 @@
-import { AppBar, Box, Container, Toolbar, Typography } from '@mui/material';
-import { Outlet } from 'react-router-dom';
+import {
+  AppBar,
+  Box,
+  Button,
+  ButtonProps,
+  Container,
+  Toolbar,
+} from '@mui/material';
+import { Link, Outlet, useNavigate } from 'react-router-dom';
 
 import { Image } from '../Base';
 
+type MenuListProps = {
+  menuUrl: string;
+  menu: string;
+} & ButtonProps;
+
+const MenuList = ({ menu, menuUrl, ...restProps }: MenuListProps) => {
+  return (
+    <Button variant={'text'} component={Link} to={menuUrl} {...restProps}>
+      {menu}
+    </Button>
+  );
+};
+
 const BaseLayout = () => {
+  const navigate = useNavigate();
+
+  const handleGoToHomePage = () => {
+    navigate('/');
+  };
+
   return (
     <Box>
       <AppBar>
@@ -18,11 +44,13 @@ const BaseLayout = () => {
             src={'/assets/images/chula-seal-logo.svg'}
             alt={'Chula SEAL Logo'}
             maxHeight={48}
+            onClick={handleGoToHomePage}
+            sx={{ cursor: 'pointer' }}
           />
           <Box display={'flex'}>
-            <Typography>Browse</Typography>
-            <Typography pl={2}>About</Typography>
-            <Typography pl={2}>Contact Us</Typography>
+            <MenuList menu='Browse' menuUrl='/browse' />
+            <MenuList menu='About' menuUrl='/about' pl={2} />
+            <MenuList menu='Contact Us' menuUrl='/contact-us' pl={2} />
           </Box>
         </Container>
       </AppBar>
