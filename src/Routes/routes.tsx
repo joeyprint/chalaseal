@@ -1,9 +1,12 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import { About } from './About';
 import { ArticleDetails } from './ArticleDetails';
-import { Browse } from './Browse';
-import { Homepage } from './Homepage';
 import { BaseLayout } from '../Components/Layout';
+import { Browse } from './Browse';
+import { ContactUs } from './ContactUs';
+import { Homepage } from './Homepage';
+import { NotFound } from './NotFound';
 
 const AppRoutes = () => {
   return (
@@ -16,7 +19,10 @@ const AppRoutes = () => {
           <Route index element={<Navigate to={'/browse'} />} />
           <Route path={':articleId'} element={<ArticleDetails />} />
         </Route>
+        <Route path={'/about'} element={<About />} />
+        <Route path={'/contact-us'} element={<ContactUs />} />
       </Route>
+      <Route path={'*'} element={<NotFound />} />
     </Routes>
   );
 };
