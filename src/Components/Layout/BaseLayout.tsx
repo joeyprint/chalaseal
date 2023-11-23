@@ -27,7 +27,7 @@ const BaseLayout = () => {
         </Container>
       </AppBar>
       <Toolbar />
-      <Box mt={8}>
+      <Box py={8}>
         <Outlet />
       </Box>
     </Box>
