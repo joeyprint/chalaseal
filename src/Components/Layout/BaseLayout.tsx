@@ -49,8 +49,8 @@ const BaseLayout = () => {
           />
           <Box display={'flex'}>
             <MenuList menu='Browse' menuUrl='/browse' />
-            <MenuList menu='About' menuUrl='/about' pl={2} />
-            <MenuList menu='Contact Us' menuUrl='/contact-us' pl={2} />
+            <MenuList menu='About' menuUrl='/about' sx={{ ml: 2 }} />
+            <MenuList menu='Contact Us' menuUrl='/contact-us' sx={{ ml: 2 }} />
           </Box>
         </Container>
       </AppBar>
