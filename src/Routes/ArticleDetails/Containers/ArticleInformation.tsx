@@ -65,6 +65,7 @@ const ArticleInformation = () => {
             latitude={13.756331}
             longitude={100.501762}
             popupMessage={mockInfo.title}
+            mt={2}
           />
         </Box>
       </Box>
