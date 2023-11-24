@@ -1,7 +1,13 @@
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
+import AboutInfo from './Containers/AboutInfo';
 
 const About = () => {
-  return <Container>This is a about page</Container>;
+  return (
+    <Container>
+      <Typography variant={'h4'}>About</Typography>
+      <AboutInfo />
+    </Container>
+  );
 };
 
 export default About;
