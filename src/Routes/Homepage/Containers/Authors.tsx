@@ -23,7 +23,7 @@ const Authors = () => {
           See More
         </Typography>
       </Box>
-      <Grid container spacing={2} mt={2}>
+      <Grid container spacing={2} mt={1}>
         <Grid item xs={12} sm={6} md={4}>
           <AuthorItem
             name={'Theraphan Luangthongkum'}
