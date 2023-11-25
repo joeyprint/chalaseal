@@ -3,6 +3,7 @@ import { Button, Container } from '@mui/material';
 import { useNavigate } from 'react-router';
 
 import AuthorInformation from './Containers/AuthorInformation';
+import ArticleCollection from './Containers/ArticleCollection';
 
 const AuthorDetails = () => {
   const navigate = useNavigate();
@@ -18,6 +19,7 @@ const AuthorDetails = () => {
         Back
       </Button>
       <AuthorInformation />
+      <ArticleCollection />
     </Container>
   );
 };
