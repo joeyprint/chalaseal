@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { About } from './About';
 import { ArticleDetails } from './ArticleDetails';
+import { AuthorDetails } from './AuthorDetails';
 import { BaseLayout } from '../Components/Layout';
 import { Browse } from './Browse';
 import { ContactUs } from './ContactUs';
@@ -18,6 +19,10 @@ const AppRoutes = () => {
         <Route path={'/articles'}>
           <Route index element={<Navigate to={'/browse'} />} />
           <Route path={':articleId'} element={<ArticleDetails />} />
+        </Route>
+        <Route path={'/authors'}>
+          <Route index element={<Navigate to={'/browse'} />} />
+          <Route path={':authorId'} element={<AuthorDetails />} />
         </Route>
         <Route path={'/about'} element={<About />} />
         <Route path={'/contact-us'} element={<ContactUs />} />

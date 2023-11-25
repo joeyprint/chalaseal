@@ -14,6 +14,7 @@ const AuthorItem = (props: AuthorItemProps) => {
       borderRadius={2}
       boxShadow={4}
       p={2}
+      sx={{ cursor: 'pointer', ...restProps.sx }}
       {...restProps}
     >
       <Typography fontWeight={600}>{name}</Typography>

@@ -1,14 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Box, Grid, Typography } from '@mui/material';
 
 import AuthorItem from '../Components/AuthorItem';
 
 const Authors = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
-  // const goToAuthorById = (id: string) => {
-  //   navigate(`/authors/${id}`);
-  // };
+  const goToAuthorById = (id: string) => {
+    navigate(`/authors/${id}`);
+  };
 
   return (
     <>
@@ -25,6 +25,7 @@ const Authors = () => {
             description={
               'Humanities Information Center, Faculty of Arts, Chulalongkorn University'
             }
+            onClick={() => goToAuthorById('1')}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
@@ -33,6 +34,7 @@ const Authors = () => {
             description={
               'Humanities Information Center, Faculty of Arts, Chulalongkorn University'
             }
+            onClick={() => goToAuthorById('2')}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
@@ -41,6 +43,7 @@ const Authors = () => {
             description={
               'Humanities Information Center, Faculty of Arts, Chulalongkorn University'
             }
+            onClick={() => goToAuthorById('3')}
           />
         </Grid>
       </Grid>
