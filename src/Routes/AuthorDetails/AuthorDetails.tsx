@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router';
 
 import AuthorInformation from './Containers/AuthorInformation';
 import ArticleCollection from './Containers/ArticleCollection';
+import ArticlesByAuthor from './Containers/ArticlesByAuthor';
 
 const AuthorDetails = () => {
   const navigate = useNavigate();
@@ -20,6 +21,7 @@ const AuthorDetails = () => {
       </Button>
       <AuthorInformation />
       <ArticleCollection />
+      <ArticlesByAuthor />
     </Container>
   );
 };
