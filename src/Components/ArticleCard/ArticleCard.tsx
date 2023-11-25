@@ -2,13 +2,13 @@ import EastRoundedIcon from '@mui/icons-material/EastRounded';
 
 import { Box, BoxProps, Button, Typography } from '@mui/material';
 
-type ArticleItemProps = {
+type ArticleCardProps = {
   topic: string;
   description: string;
   onReadMore?: () => void;
 } & BoxProps;
 
-const ArticleItem = (props: ArticleItemProps) => {
+const ArticleCard = (props: ArticleCardProps) => {
   const { topic, description, onReadMore, ...restProps } = props;
 
   return (
@@ -60,4 +60,4 @@ const ArticleItem = (props: ArticleItemProps) => {
   );
 };
 
-export default ArticleItem;
+export default ArticleCard;

@@ -1,7 +1,7 @@
 import { Box, Grid, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 
-import ArticleItem from '../Components/ArticleItem';
+import { ArticleCard } from '../../../Components/ArticleCard';
 
 const Articles = () => {
   const navigate = useNavigate();
@@ -20,7 +20,7 @@ const Articles = () => {
       </Box>
       <Grid container spacing={2} mt={2}>
         <Grid item xs={12} sm={6} md={4}>
-          <ArticleItem
+          <ArticleCard
             topic={'Yao: Ban Huai Mae Sai Dialect'}
             description={
               'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
@@ -29,7 +29,7 @@ const Articles = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <ArticleItem
+          <ArticleCard
             topic={'Yao: Ban Huai Mae Sai Dialect'}
             description={
               'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
@@ -38,7 +38,7 @@ const Articles = () => {
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
-          <ArticleItem
+          <ArticleCard
             topic={'Yao: Ban Huai Mae Sai Dialect'}
             description={
               'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
