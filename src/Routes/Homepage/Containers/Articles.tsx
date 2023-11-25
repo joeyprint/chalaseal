@@ -29,25 +29,24 @@ const Articles = () => {
             description={
               'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
             }
-            onReadMore={() => goToArticleById('1')}
+            onButtonClick={() => goToArticleById('1')}
           />
         </Grid>
         <Grid item xs={12} sm={6} md={4}>
           <ArticleCard
             topic={'Yao: Ban Huai Mae Sai Dialect'}
             description={
-              'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
+              'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words.'
             }
-            onReadMore={() => goToArticleById('2')}
+            onButtonClick={() => goToArticleById('2')}
           />
         </Grid>
-        <Grid item xs={12} sm={6} md={4}>
+        <Grid item xs={12} sm={6} md={4} height={'auto'}>
           <ArticleCard
             topic={'Yao: Ban Huai Mae Sai Dialect'}
-            description={
-              'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai'
-            }
-            onReadMore={() => goToArticleById('3')}
+            description={'Interviews of Yao people'}
+            onButtonClick={() => goToArticleById('3')}
+            height={'100%'}
           />
         </Grid>
       </Grid>
