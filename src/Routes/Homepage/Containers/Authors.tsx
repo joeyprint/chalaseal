@@ -12,7 +12,12 @@ const Authors = () => {
 
   return (
     <>
-      <Box display={'flex'} justifyContent={'space-between'} mt={6}>
+      <Box
+        display={'flex'}
+        justifyContent={'space-between'}
+        alignItems={'baseline'}
+        mt={6}
+      >
         <Typography variant={'h5'}>Authors</Typography>
         <Typography component={Link} to={'/authors'}>
           See More
