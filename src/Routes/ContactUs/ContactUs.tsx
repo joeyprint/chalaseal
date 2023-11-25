@@ -1,7 +1,14 @@
-import { Container } from '@mui/material';
+import { Container, Typography } from '@mui/material';
+
+import ContactInfo from './Containers/ContactInfo';
 
 const ContactUs = () => {
-  return <Container>This is a contact us page</Container>;
+  return (
+    <Container>
+      <Typography variant={'h4'}>Contact Us</Typography>
+      <ContactInfo />
+    </Container>
+  );
 };
 
 export default ContactUs;
