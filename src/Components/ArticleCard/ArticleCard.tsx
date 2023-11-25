@@ -55,12 +55,23 @@ const ArticleCard = (props: ArticleCardProps) => {
         )}
       </Box>
       {onButtonClick && (
-        <Box mt={2}>
+        <Box mt={3}>
+          <Button
+            endIcon={<EastRoundedIcon />}
+            variant={'outlined'}
+            size={'large'}
+            onClick={onButtonClick}
+            fullWidth
+            sx={{ display: { sm: 'none' } }}
+          >
+            {buttonMessage}
+          </Button>
           <Button
             endIcon={<EastRoundedIcon />}
             variant={'contained'}
             size={'large'}
             onClick={onButtonClick}
+            sx={{ display: { xs: 'none', sm: 'inline-flex' } }}
           >
             {buttonMessage}
           </Button>
