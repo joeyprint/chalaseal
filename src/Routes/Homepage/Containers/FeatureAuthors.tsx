@@ -3,7 +3,7 @@ import { Box, Grid, Typography } from '@mui/material';
 
 import AuthorItem from '../Components/AuthorItem';
 
-const Authors = () => {
+const FeatureAuthors = () => {
   const navigate = useNavigate();
 
   const goToAuthorById = (id: string) => {
@@ -56,4 +56,4 @@ const Authors = () => {
   );
 };
 
-export default Authors;
+export default FeatureAuthors;

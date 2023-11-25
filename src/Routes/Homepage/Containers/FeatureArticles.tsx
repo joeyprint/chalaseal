@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { ArticleCard } from '../../../Components/ArticleCard';
 
-const Articles = () => {
+const FeatureArticles = () => {
   const navigate = useNavigate();
 
   const goToArticleById = (id: string) => {
@@ -54,4 +54,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default FeatureArticles;

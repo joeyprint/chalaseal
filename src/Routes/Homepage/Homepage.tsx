@@ -1,13 +1,13 @@
 import { Container } from '@mui/material';
 
-import Articles from './Containers/Articles';
-import Authors from './Containers/Authors';
+import FeatureArticles from './Containers/FeatureArticles';
+import FeatureAuthors from './Containers/FeatureAuthors';
 
 const Homepage = () => {
   return (
     <Container>
-      <Articles />
-      <Authors />
+      <FeatureArticles />
+      <FeatureAuthors />
     </Container>
   );
 };
