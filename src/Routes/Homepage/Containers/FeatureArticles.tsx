@@ -1,14 +1,28 @@
+// import { useEffect, useState } from 'react';
 import { Box, Grid, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 
 import { ArticleCard } from '../../../Components/ArticleCard';
+import { useFeaturedItems } from '../../../Domains/features';
 
 const FeatureArticles = () => {
   const navigate = useNavigate();
 
+  const { data, isLoading, isError } = useFeaturedItems();
+
   const goToArticleById = (id: string) => {
     navigate(`/articles/${id}`);
   };
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error fetching data</div>;
+  }
+
+  console.log(data);
 
   return (
     <>
