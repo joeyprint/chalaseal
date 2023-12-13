@@ -40,7 +40,9 @@ const FeatureArticles = () => {
       </Box>
       <Grid container spacing={2} mt={1}>
         {thirdFeatures.map((feature: Record<string, unknown>) => {
-          const { id, title, description } = feature;
+          const id = feature.id as number;
+          const title = feature.title as string;
+          const description = feature.description as string;
 
           return (
             <Grid key={id} item xs={12} sm={6} md={4}>
