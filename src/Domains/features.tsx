@@ -7,5 +7,5 @@ export const useFeaturedItems = () => {
     queryFn: async () => await axiosInstance.get('/items/featured'),
   });
 
-  return res.data;
+  return res;
 };
