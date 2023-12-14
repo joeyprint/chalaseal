@@ -1,5 +1,7 @@
-import { Box, BoxProps, Typography } from '@mui/material';
+import { Box, BoxProps, Chip, Typography } from '@mui/material';
 import { MapViewer } from '../../../Components/MapViewer';
+import { useParams } from 'react-router-dom';
+import { useItemDetails } from '../../../Domains/item';
 
 type InfoBoxProps = {
   title: string;
@@ -32,14 +34,26 @@ const mockInfo = {
   location: 'Surin (Thailand)',
   accrual: 'Donation',
   author: 'Theraphan Luangthongkum',
-  publisher:
-    'Humanities Information Center, Faculty of Arts, Chulalongkorn University',
   rightHolder:
     'Humanities Information Center, Faculty of Arts, Chulalongkorn University',
   tags: ['Ahka', 'Ekaw', 'Sino-Tibetan Languages'],
 };
 
 const ArticleInformation = () => {
+  const { articleId = '' } = useParams();
+  const { data, isLoading, isError } = useItemDetails(articleId);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error fetching data</div>;
+  }
+
+  const article = data?.data;
+  const collection = article.collection;
+
   return (
     <Box mt={8}>
       <InfoBox title={'Original Format'} description={mockInfo.originFormat} />
@@ -81,26 +95,32 @@ const ArticleInformation = () => {
         `}
         mt={2}
       />
-      <InfoBox title={'Publisher'} description={mockInfo.publisher} mt={2} />
+      <InfoBox title={'Publisher'} description={collection.publisher} mt={2} />
       <InfoBox
         title={'Right Holder'}
         description={mockInfo.rightHolder}
         mt={2}
       />
-      <InfoBox
-        title={'Copyright'}
-        description={
-          'In copyright. This material may be used for personal, educational, or non-commercial use when a statement of credit is used. For other uses, please contact the Department of Linguistics, Faculty of Arts, Chulalongkorn University at chulaseal@gmail.com'
-        }
-        mt={2}
-      />
+      <InfoBox title={'Copyright'} description={collection.rights} mt={2} />
       <Box display={{ md: 'flex' }} alignItems={{ md: 'baseline' }} mt={2}>
         <Typography fontWeight={600} minWidth={145}>
           Tags
         </Typography>
         <Box>
-          {/* Tags */}
-          <Typography>{mockInfo.tags.join(', ')}</Typography>
+          {article.tags.map((tag: Record<string, unknown>, index: number) => {
+            const id = tag.id as number;
+            const name = tag.name as string;
+
+            return (
+              <Chip
+                key={id}
+                label={name}
+                color={'primary'}
+                variant={'outlined'}
+                sx={{ ml: index === 0 ? 0 : 1 }}
+              />
+            );
+          })}
         </Box>
       </Box>
     </Box>
