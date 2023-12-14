@@ -1,22 +1,31 @@
 import { Box, Typography } from '@mui/material';
+import { useParams } from 'react-router-dom';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
-const mockUpArticleInformation = {
-  title: 'Kui: Ban Sang Kae Dialect',
-  description:
-    'A list of words, phrases, and sentences of Kui in Ban Sangkae, with approximately 600 words written in phonetic alphabet, and their Thai translations are written with pencil',
-  author: 'Theraphan Luangthongkum',
-};
+import { useItemDetails } from '../../../Domains/item';
 
 const ArticleBasicInformation = () => {
-  const { title, description, author } = mockUpArticleInformation;
+  const { articleId = '' } = useParams();
+  const { data, isLoading, isError } = useItemDetails(articleId);
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error fetching data</div>;
+  }
+
+  const article = data?.data ?? {};
+  const collection = article.collection;
+
   return (
     <Box mt={2.5}>
-      <Typography variant={'h4'}>{title}</Typography>
-      <Typography mt={0.5}>{description}</Typography>
+      <Typography variant={'h4'}>{article.title}</Typography>
+      <Typography mt={0.5}>{article.description}</Typography>
       <Box display={'flex'} alignItems={'center'} mt={1.5}>
         <PersonOutlineOutlinedIcon fontSize={'small'} sx={{ mr: 1.25 }} />
-        <Typography variant={'body2'}>{author}</Typography>
+        <Typography variant={'body2'}>{collection.title}</Typography>
       </Box>
     </Box>
   );
