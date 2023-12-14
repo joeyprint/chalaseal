@@ -44,37 +44,40 @@ const ArticleInformation = () => {
   }
 
   const article = data?.data;
-  const collection = article.collection;
 
   return (
     <Box mt={8}>
       <InfoBox title={'Original Format'} description={article.originalFormat} />
       <InfoBox title={'Source'} description={article.source} mt={2} />
-      <InfoBox title={'Subject'} description={mockInfo.subject} mt={2} />
+      <InfoBox title={'Subject'} description={article.subjects[0]} mt={2} />
       <InfoBox
         title={'Language'}
-        description={mockInfo.languages.join(', ')}
+        description={article.languages.join(', ')}
         mt={2}
       />
-      <InfoBox
-        title={'Research Date'}
-        description={mockInfo.researchDate}
-        mt={2}
-      />
-      <Box display={{ md: 'flex' }} alignItems={{ md: 'baseline' }} mt={2}>
-        <Typography fontWeight={600} minWidth={145}>
-          Location
-        </Typography>
-        <Box width={1}>
-          <Typography>{mockInfo.location}</Typography>
-          <MapViewer
-            latitude={13.756331}
-            longitude={100.501762}
-            popupMessage={article.title}
-            mt={2}
-          />
+      {article.researchDate && (
+        <InfoBox
+          title={'Research Date'}
+          description={article.researchDate}
+          mt={2}
+        />
+      )}
+      {article.location && (
+        <Box display={{ md: 'flex' }} alignItems={{ md: 'baseline' }} mt={2}>
+          <Typography fontWeight={600} minWidth={145}>
+            Location
+          </Typography>
+          <Box width={1}>
+            <Typography>{article.location}</Typography>
+            <MapViewer
+              latitude={13.756331}
+              longitude={100.501762}
+              popupMessage={article.title}
+              mt={2}
+            />
+          </Box>
         </Box>
-      </Box>
+      )}
       <InfoBox
         title={'Accrual Method'}
         description={article.accrualMethod}
@@ -83,7 +86,7 @@ const ArticleInformation = () => {
       <InfoBox
         title={'Citation'}
         description={`
-        ${collection.title}, ${article.title}, ${new Intl.DateTimeFormat('en', {
+        ${article.creator}, ${article.title}, ${new Intl.DateTimeFormat('en', {
           day: 'numeric',
           month: 'long',
           year: 'numeric',
@@ -91,13 +94,13 @@ const ArticleInformation = () => {
         `}
         mt={2}
       />
-      <InfoBox title={'Publisher'} description={collection.publisher} mt={2} />
+      <InfoBox title={'Publisher'} description={article.publisher} mt={2} />
       <InfoBox
         title={'Right Holder'}
         description={article.rightHolder}
         mt={2}
       />
-      <InfoBox title={'Copyright'} description={collection.rights} mt={2} />
+      <InfoBox title={'Copyright'} description={article.rights} mt={2} />
       <Box display={{ md: 'flex' }} alignItems={{ md: 'baseline' }} mt={2}>
         <Typography fontWeight={600} minWidth={145}>
           Tags

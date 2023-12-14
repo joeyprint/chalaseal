@@ -17,7 +17,6 @@ const ArticleBasicInformation = () => {
   }
 
   const article = data?.data ?? {};
-  const collection = article.collection;
 
   return (
     <Box mt={2.5}>
@@ -25,7 +24,7 @@ const ArticleBasicInformation = () => {
       <Typography mt={0.5}>{article.description}</Typography>
       <Box display={'flex'} alignItems={'center'} mt={1.5}>
         <PersonOutlineOutlinedIcon fontSize={'small'} sx={{ mr: 1.25 }} />
-        <Typography variant={'body2'}>{collection.title}</Typography>
+        <Typography variant={'body2'}>{article.creator}</Typography>
       </Box>
     </Box>
   );
