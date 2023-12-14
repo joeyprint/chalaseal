@@ -23,14 +23,6 @@ const InfoBox = ({ title, description, ...restProps }: InfoBoxProps) => {
   );
 };
 
-const mockInfo = {
-  id: '1',
-  subject: 'Sino-Tibetan Languages',
-  languages: ['tha', 'kdt'],
-  researchDate: '1 July 1983 - 5 Aug 1983',
-  location: 'Surin (Thailand)',
-};
-
 const ArticleInformation = () => {
   const { articleId = '' } = useParams();
   const { data, isLoading, isError } = useItemDetails(articleId);
