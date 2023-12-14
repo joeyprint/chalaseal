@@ -25,18 +25,10 @@ const InfoBox = ({ title, description, ...restProps }: InfoBoxProps) => {
 
 const mockInfo = {
   id: '1',
-  title: 'Kui: Ban Sang Kae Dialect',
-  originFormat: 'Notebook',
-  originSource: "Written text from Theeraphan Luangthongkum's notebook",
   subject: 'Sino-Tibetan Languages',
   languages: ['tha', 'kdt'],
   researchDate: '1 July 1983 - 5 Aug 1983',
   location: 'Surin (Thailand)',
-  accrual: 'Donation',
-  author: 'Theraphan Luangthongkum',
-  rightHolder:
-    'Humanities Information Center, Faculty of Arts, Chulalongkorn University',
-  tags: ['Ahka', 'Ekaw', 'Sino-Tibetan Languages'],
 };
 
 const ArticleInformation = () => {
@@ -56,8 +48,8 @@ const ArticleInformation = () => {
 
   return (
     <Box mt={8}>
-      <InfoBox title={'Original Format'} description={mockInfo.originFormat} />
-      <InfoBox title={'Source'} description={mockInfo.originSource} mt={2} />
+      <InfoBox title={'Original Format'} description={article.originalFormat} />
+      <InfoBox title={'Source'} description={article.source} mt={2} />
       <InfoBox title={'Subject'} description={mockInfo.subject} mt={2} />
       <InfoBox
         title={'Language'}
@@ -78,16 +70,20 @@ const ArticleInformation = () => {
           <MapViewer
             latitude={13.756331}
             longitude={100.501762}
-            popupMessage={mockInfo.title}
+            popupMessage={article.title}
             mt={2}
           />
         </Box>
       </Box>
-      <InfoBox title={'Accrual Method'} description={mockInfo.accrual} mt={2} />
+      <InfoBox
+        title={'Accrual Method'}
+        description={article.accrualMethod}
+        mt={2}
+      />
       <InfoBox
         title={'Citation'}
         description={`
-        ${mockInfo.author}, ${mockInfo.title}, ${new Intl.DateTimeFormat('en', {
+        ${collection.title}, ${article.title}, ${new Intl.DateTimeFormat('en', {
           day: 'numeric',
           month: 'long',
           year: 'numeric',
@@ -98,7 +94,7 @@ const ArticleInformation = () => {
       <InfoBox title={'Publisher'} description={collection.publisher} mt={2} />
       <InfoBox
         title={'Right Holder'}
-        description={mockInfo.rightHolder}
+        description={article.rightHolder}
         mt={2}
       />
       <InfoBox title={'Copyright'} description={collection.rights} mt={2} />
