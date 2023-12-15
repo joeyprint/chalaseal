@@ -32,7 +32,7 @@ const PdfViewer = () => {
         httpHeaders={{
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'GET, POST',
-          'Access-Control-Allow-Headers': 'Origin, Content-Type',
+          'Access-Control-Allow-Headers': '*',
         }}
         withCredentials={true}
       />
