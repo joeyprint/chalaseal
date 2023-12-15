@@ -27,7 +27,7 @@ const ArticleBasicInformation = () => {
       <Typography mt={0.5}>{article.description}</Typography>
       <Box display={'flex'} alignItems={'center'} mt={1.5}>
         <PersonOutlineOutlinedIcon fontSize={'small'} sx={{ mr: 1.25 }} />
-        <HTMLView variant={'body2'}>{creator}</HTMLView>
+        <HTMLView>{creator}</HTMLView>
       </Box>
     </Box>
   );
