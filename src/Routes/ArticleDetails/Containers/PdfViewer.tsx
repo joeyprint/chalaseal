@@ -29,6 +29,12 @@ const PdfViewer = () => {
         renderError={() => (
           <Alert severity={'error'}>Fail to fetch PDF file</Alert>
         )}
+        httpHeaders={{
+          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Methods': 'GET, POST',
+          'Access-Control-Allow-Headers': 'Origin, Content-Type',
+        }}
+        withCredentials={true}
       />
     </Box>
   );
