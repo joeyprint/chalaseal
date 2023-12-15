@@ -50,7 +50,7 @@ const ArticleInformation = () => {
 
   const article = data?.data;
   const location = article?.location;
-  const locationName = removeHrefOutOfATag(location.name ?? '');
+  const locationName = removeHrefOutOfATag(location?.name ?? '');
 
   return (
     <Box mt={8}>
