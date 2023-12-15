@@ -1,14 +1,27 @@
-import { Box, BoxProps, Chip, Typography } from '@mui/material';
-import { MapViewer } from '../../../Components/MapViewer';
+import { Box, BoxProps, Chip, Typography, styled } from '@mui/material';
 import { useParams } from 'react-router-dom';
+
+import { MapViewer } from '../../../Components/MapViewer';
 import { useItemDetails } from '../../../Domains/item';
+import { HTMLView } from '../../../Components/HTMLView';
+import { removeHrefOutOfATag } from '../../../Utils/sanitizedHTML';
 
 type InfoBoxProps = {
   title: string;
   description: string;
 } & BoxProps;
 
+const HTMLViewerStyles = styled(HTMLView)(() => ({
+  a: {
+    color: 'inherit',
+    textDecoration: 'none',
+    cursor: 'inherit',
+  },
+}));
+
 const InfoBox = ({ title, description, ...restProps }: InfoBoxProps) => {
+  const newDescription = removeHrefOutOfATag(description);
+
   return (
     <Box
       display={{ md: 'flex' }}
@@ -18,7 +31,7 @@ const InfoBox = ({ title, description, ...restProps }: InfoBoxProps) => {
       <Typography fontWeight={600} minWidth={145}>
         {title}
       </Typography>
-      <Typography>{description}</Typography>
+      <HTMLViewerStyles>{newDescription}</HTMLViewerStyles>
     </Box>
   );
 };
@@ -37,12 +50,13 @@ const ArticleInformation = () => {
 
   const article = data?.data;
   const location = article?.location;
+  const locationName = removeHrefOutOfATag(location.name ?? '');
 
   return (
     <Box mt={8}>
       <InfoBox title={'Original Format'} description={article.originalFormat} />
       <InfoBox title={'Source'} description={article.source} mt={2} />
-      <InfoBox title={'Subject'} description={article.subjects[0]} mt={2} />
+      <InfoBox title={'Subject'} description={article.subjects} mt={2} />
       <InfoBox
         title={'Language'}
         description={article.languages.join(', ')}
@@ -61,7 +75,7 @@ const ArticleInformation = () => {
             Location
           </Typography>
           <Box width={1}>
-            <Typography>{location.name}</Typography>
+            <HTMLViewerStyles>{locationName}</HTMLViewerStyles>
             <MapViewer
               latitude={location.latitude}
               longitude={location.longitude}

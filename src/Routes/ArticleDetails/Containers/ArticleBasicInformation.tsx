@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 
 import { useItemDetails } from '../../../Domains/item';
+import { removeHrefOutOfATag } from '../../../Utils/sanitizedHTML';
+import { HTMLView } from '../../../Components/HTMLView';
 
 const ArticleBasicInformation = () => {
   const { articleId = '' } = useParams();
@@ -17,6 +19,7 @@ const ArticleBasicInformation = () => {
   }
 
   const article = data?.data ?? {};
+  const creator = removeHrefOutOfATag(article.creator);
 
   return (
     <Box mt={2.5}>
@@ -24,7 +27,7 @@ const ArticleBasicInformation = () => {
       <Typography mt={0.5}>{article.description}</Typography>
       <Box display={'flex'} alignItems={'center'} mt={1.5}>
         <PersonOutlineOutlinedIcon fontSize={'small'} sx={{ mr: 1.25 }} />
-        <Typography variant={'body2'}>{article.creator}</Typography>
+        <HTMLView variant={'body2'}>{creator}</HTMLView>
       </Box>
     </Box>
   );
