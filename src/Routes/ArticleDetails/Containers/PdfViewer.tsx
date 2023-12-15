@@ -30,7 +30,10 @@ const PdfViewer = () => {
           <Alert severity={'error'}>Fail to fetch PDF file</Alert>
         )}
         httpHeaders={{
-          'Access-Control-Allow-Origin': '*',
+          'Access-Control-Allow-Origin': [
+            'http://localhost:3000',
+            'https://chulaseal.staging.wasin.dev',
+          ],
           'Access-Control-Allow-Methods': 'GET, POST',
           'Access-Control-Allow-Headers': '*',
         }}
