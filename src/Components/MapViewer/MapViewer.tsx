@@ -7,16 +7,17 @@ type MapViewerProps = {
   latitude: number;
   longitude: number;
   popupMessage?: string;
+  zoom?: number;
 } & BoxProps;
 
 const MapViewer = (props: MapViewerProps) => {
-  const { latitude, longitude, popupMessage, ...restProps } = props;
+  const { latitude, longitude, popupMessage, zoom = 15, ...restProps } = props;
 
   return (
     <Box width={1} height={300} {...restProps} overflow={'hidden'}>
       <MapContainer
         center={[latitude, longitude]}
-        zoom={15}
+        zoom={zoom}
         scrollWheelZoom={false}
         style={{ height: '100%' }}
       >
