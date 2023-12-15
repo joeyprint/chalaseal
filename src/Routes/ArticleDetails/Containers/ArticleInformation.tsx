@@ -36,6 +36,7 @@ const ArticleInformation = () => {
   }
 
   const article = data?.data;
+  const location = article?.location;
 
   return (
     <Box mt={8}>
@@ -54,16 +55,17 @@ const ArticleInformation = () => {
           mt={2}
         />
       )}
-      {article.location && (
+      {location && (
         <Box display={{ md: 'flex' }} alignItems={{ md: 'baseline' }} mt={2}>
           <Typography fontWeight={600} minWidth={145}>
             Location
           </Typography>
           <Box width={1}>
-            <Typography>{article.location}</Typography>
+            <Typography>{location.name}</Typography>
             <MapViewer
-              latitude={13.756331}
-              longitude={100.501762}
+              latitude={location.latitude}
+              longitude={location.longitude}
+              zoom={location.zoomLevel}
               popupMessage={article.title}
               mt={2}
             />
