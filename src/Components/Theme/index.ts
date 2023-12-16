@@ -2,6 +2,7 @@ import { createTheme } from '@mui/material';
 
 import appBarTheme from './AppBarTheme';
 import buttonTheme from './ButtonTheme';
+import chipTheme from './ChipTheme';
 import paletteTheme from './PaletteTheme';
 import svgIconTheme from './SvgIconTheme';
 import typographyTheme from './TypographyTheme';
@@ -19,6 +20,7 @@ const theme = createTheme({
   components: {
     ...appBarTheme,
     ...buttonTheme,
+    ...chipTheme,
     ...svgIconTheme,
     ...typographyTheme.components,
   },

@@ -1,14 +1,14 @@
 import PlaceOutlinedIcon from '@mui/icons-material/PlaceOutlined';
 import LabelOutlinedIcon from '@mui/icons-material/LabelOutlined';
-import { Box, BoxProps, Typography } from '@mui/material';
+import { Box, BoxProps, Chip, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 type BrowseItemProps = {
   title: string;
   description: string;
   articleUrl: string;
-  location?: string;
-  tags?: Array<string>;
+  location?: { name: string };
+  tags?: Array<{ id: number; name: string }>;
 } & BoxProps;
 
 const BrowseItem = (props: BrowseItemProps) => {
@@ -40,13 +40,21 @@ const BrowseItem = (props: BrowseItemProps) => {
       {location && (
         <Box display={'flex'} alignItems={'center'} mt={0.5}>
           <PlaceOutlinedIcon fontSize='small' sx={{ mr: 1.25 }} />
-          <Typography variant={'body2'}>{location}</Typography>
+          <Typography variant={'body2'}>{location.name}</Typography>
         </Box>
       )}
       {tags && tags.length > 0 && (
         <Box display={'flex'} alignItems={'center'} mt={0.5}>
           <LabelOutlinedIcon fontSize='small' sx={{ mr: 1.25 }} />
-          <Typography variant={'body2'}>{tags?.join(', ')}</Typography>
+          {tags.map((tag, index: number) => (
+            <Chip
+              label={tag.name}
+              color={'primary'}
+              size={'small'}
+              variant={'outlined'}
+              sx={{ ml: index === 0 ? 0 : 1 }}
+            />
+          ))}
         </Box>
       )}
     </Box>

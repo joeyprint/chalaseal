@@ -1,42 +1,29 @@
 import { Box } from '@mui/material';
 import BrowseItem from '../Components/BrowseItem';
-
-const mockUpBrowseList = [
-  {
-    id: '1',
-    title: 'Yao: Ban Huai Mae Sai Dialect',
-    description:
-      'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai',
-  },
-  {
-    id: '2',
-    title: 'Kayan Karen, Kayah, and Kayaw: Ban Huai Suea Thao Dialect',
-    description:
-      'A word list of Kayan Karen, Kaya Karenm and Kayaw Karen in Ban Huai Suea Thao, Pha Bong, Mueang, Mae Hong Son, with approximately 1,800 words, written in phonetic alphabet, in which word prompts are printed in English, and translated in Thai',
-    location: 'Ban Huai, Mae Sai',
-  },
-  {
-    id: '3',
-    title: 'Yao: Ban Huai Mae Sai Dialect',
-    description:
-      'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai',
-    tags: ['Ahka', 'Ekaw', 'Sino-Tibetan Languages'],
-  },
-  {
-    id: '4',
-    title: 'Yao: Ban Huai Mae Sai Dialect',
-    description:
-      'Interviews of Yao people, recording their rituals and tone in Yao, and a list of approximately 700 words, which recorded with pencil in Thai and word prompts are written in Thai',
-    location: 'Ban Kham',
-    tags: ['Ahka', 'Ekaw', 'Sino-Tibetan Languages'],
-  },
-];
+import { useItems } from '../../../Domains/item';
 
 const BrowseList = () => {
+  const { data, isLoading, isError } = useItems();
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError) {
+    return <div>Error fetching data</div>;
+  }
+
+  const items = data?.data ?? [];
+
   return (
     <Box maxWidth={715}>
-      {mockUpBrowseList.map((item, index) => {
-        const { id, title, description, location, tags } = item;
+      {items.map((item: Record<string, unknown>, index: number) => {
+        const id = item.id as number;
+        const title = item.title as string;
+        const description = item.description as string;
+        const location = item?.location as { name: string };
+        const tags = item?.tags as Array<{ id: number; name: string }>;
+
         return (
           <Box mt={index === 0 ? 0 : 3} key={id}>
             <BrowseItem
