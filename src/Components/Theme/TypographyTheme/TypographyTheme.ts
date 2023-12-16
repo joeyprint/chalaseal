@@ -44,12 +44,12 @@ const TypographyTheme = createTheme({
       lineHeight: 1,
     },
     h5: {
-      fontSize: 28,
+      fontSize: 32,
       fontWeight: 600,
       lineHeight: 1,
     },
     subtitle1: {
-      fontSize: 18,
+      fontSize: 28,
       fontWeight: 600,
       lineHeight: 1,
     },
